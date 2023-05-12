@@ -1,0 +1,1 @@
+## mapper文件夹下装着自定义的xml文件，而com.laowang.mymall.mbg.mapper装的是MyBatis-Generator自动生成的xml文件
