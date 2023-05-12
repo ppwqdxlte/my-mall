@@ -2,10 +2,12 @@ package com.laowang.mymall.mbg.mapper;
 
 import com.laowang.mymall.mbg.model.PmsBrand;
 import com.laowang.mymall.mbg.model.PmsBrandExample;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
+@Mapper
 public interface PmsBrandMapper {
     long countByExample(PmsBrandExample example);
 

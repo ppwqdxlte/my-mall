@@ -1,5 +1,6 @@
 package com.laowang.mymall.common.api;
 
+import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 
 import java.util.List;
@@ -43,6 +44,10 @@ public class CommonPage<T> {
         resultPage.setTotalPage(pageInfo.getPages());
         resultPage.setPageNum(pageInfo.getPageNum());
         resultPage.setPageSize(pageInfo.getPageSize());
+        if (PageHelper.getLocalPage() != null) {
+            resultPage.setPageNum(PageHelper.getLocalPage().getPageNum());
+            resultPage.setPageSize(PageHelper.getLocalPage().getPageSize());
+        }
         resultPage.setTotal(pageInfo.getTotal());
         resultPage.setResultList(pageInfo.getList());
         return resultPage;
