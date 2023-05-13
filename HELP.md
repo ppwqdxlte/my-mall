@@ -22,6 +22,13 @@ For further reference, please consider the following sections:
    + 给Controller添加文档注解
    + 修改MyBatis Generator注释的生成规则：CommentGenerator为MyBatis Generator的自定义注释生成器，修改addFieldComment方法使其生成Swagger的@ApiModelProperty注解来取代原来的方法注释，添加addJavaFileComment方法，使其能在import中导入@ApiModelProperty，否则需要手动导入该类，在需要生成大量实体类时，是一件非常麻烦的事。
    + 重新运行Generator，会发现实体类的属性添加了@ApiModelProperty的注解，去xml删除重复生成的代码，启动项目查看swagger文档，发现实体类的属性终于有注释了！！！
+3. 整合Redis实现缓存功能
+   + 虚拟机启动redis容器（之前安装过）
+   + pom添加redis依赖，spring节点添加redis配置，根节点添加自定义key配置
+   + 添加RedisService接口：定义常用Redis操作；然后实现RedisServiceImpl
+   + 【模拟】电话号码获取验证码和校验验证码(目前尚未实现 运营商发送短信的接口 和 会员注册MySQL存储的功能)，仅用Redis模拟操作
+     + 添加UmsMember的Controller、Service、ServiceImpl
+     + 打开RedisInsight软件查看Redis服务器数据情况，测试上述接口，并查看数据是否更新
 ## <span style="color: pink;">业务篇</span>
 ## <span style="color: pink;">技术要点篇</span>
 ## <span style="color: pink;">部署篇</span>
