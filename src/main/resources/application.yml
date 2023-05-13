@@ -6,7 +6,9 @@ spring:
     url: jdbc:mysql://192.168.3.128:33801/tlmallswarmmymall?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
     username: tlmalladmin
     password: Tlmall_123456
-
+  mvc:
+    path-match:
+      matching-strategy: ant_path_matcher
 mybatis:
   mapper-locations:
     - classpath:mapper/*.xml
