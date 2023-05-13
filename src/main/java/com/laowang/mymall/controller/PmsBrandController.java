@@ -4,6 +4,8 @@ import com.laowang.mymall.common.api.CommonPage;
 import com.laowang.mymall.common.api.CommonResult;
 import com.laowang.mymall.mbg.model.PmsBrand;
 import com.laowang.mymall.service.PmsBrandService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +20,7 @@ import java.util.List;
  * @author: Laowang
  * @create: 2023-05-11 16:52
  */
+@Api(tags = "商品品牌管理")
 @Controller
 @RequestMapping("/brand")
 public class PmsBrandController {
@@ -25,6 +28,7 @@ public class PmsBrandController {
     private static final Logger LOGGER = LoggerFactory.getLogger(PmsBrandController.class);
     @Autowired
     private PmsBrandService pmsBrandService;
+    @ApiOperation("获取所有品牌列表")
     @GetMapping("/")
     @ResponseBody
     public CommonResult<List<PmsBrand>> getBrandList(){
@@ -44,6 +48,7 @@ public class PmsBrandController {
         }
         return commonResult;
     }
+    @ApiOperation("删除对应id的品牌")
     @DeleteMapping("/{id}")
     @ResponseBody
     public CommonResult deleteBrand(@PathVariable("id") Long id){
@@ -56,6 +61,7 @@ public class PmsBrandController {
             return CommonResult.failed("删除失败");
         }
     }
+    @ApiOperation("修改对应id的品牌信息")
     @PutMapping("/{id}")
     @ResponseBody
     public CommonResult updateBrand(@PathVariable("id") Long id,@RequestBody PmsBrand brand){
@@ -68,6 +74,7 @@ public class PmsBrandController {
             return CommonResult.failed("修改失败");
         }
     }
+    @ApiOperation("查询对应id的品牌信息")
     @GetMapping("/{id}")
     @ResponseBody
     public CommonResult<PmsBrand> getBrandById(@PathVariable("id") Long id){
@@ -80,6 +87,7 @@ public class PmsBrandController {
             return CommonResult.failed("查不到");
         }
     }
+    @ApiOperation("分页查询品牌列表")
     @PostMapping(value = "/list")
     @ResponseBody
     public CommonResult<CommonPage<PmsBrand>> listBrandsByPage(@RequestParam(value = "pageNum",defaultValue = "1") Integer pageNum,
