@@ -29,6 +29,11 @@ For further reference, please consider the following sections:
    + 【模拟】电话号码获取验证码和校验验证码(目前尚未实现 运营商发送短信的接口 和 会员注册MySQL存储的功能)，仅用Redis模拟操作
      + 添加UmsMember的Controller、Service、ServiceImpl
      + 打开RedisInsight软件查看Redis服务器数据情况，测试上述接口，并查看数据是否更新
+4. 整合SpringSecurity和JWT实现认证和授权
+   + 引入依赖：SpringSecurity(Spring安全标准认证授权框架),JWT(JSON-Web-Token数字签名的安全传输TOKEN),Hutool一套开源丰富工具包
+   + 添加用于生成和解析JWT token的工具类JwtTokenUtil
+   + 用Generator生成UmsAdmin,UmsPermission
+   + 添加SpringSecurity的配置类SecurityConfig
 ## <span style="color: pink;">业务篇</span>
 ## <span style="color: pink;">技术要点篇</span>
 ## <span style="color: pink;">部署篇</span>

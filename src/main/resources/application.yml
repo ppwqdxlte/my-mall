@@ -35,3 +35,7 @@ mybatis:
   mapper-locations:
     - classpath:mapper/*.xml
     - classpath*:com/**/mapper/*.xml
+# JWT配置
+jwt:
+  secret: jwt_123
+  expiration: 20
