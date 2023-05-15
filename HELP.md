@@ -32,8 +32,14 @@ For further reference, please consider the following sections:
 4. 整合SpringSecurity和JWT实现认证和授权
    + 引入依赖：SpringSecurity(Spring安全标准认证授权框架),JWT(JSON-Web-Token数字签名的安全传输TOKEN),Hutool一套开源丰富工具包
    + 添加用于生成和解析JWT token的工具类JwtTokenUtil
-   + 用Generator生成UmsAdmin,UmsPermission
+   + 用Generator生成UmsAdmin,UmsPermission等若干相关代码
+   + 添加UmsAdminService + Impl，添加UmsAdmin-Role关系的dao接口 + xml
+   + 添加必要组件tokenFilter，entryPoint，accessDeniedHandler 以及 dto/AdminUserDetails
    + 添加SpringSecurity的配置类SecurityConfig
+   + 添加请求参数类UmsAdminLoginParam以及添加控制器UmsAdminController
+   + 修改Swagger的配置：实现调用接口自带Authorization头，略
+   + 给PmsBrandController接口中的方法添加访问权限
+   + 然后启动项目验证登录注册：test用户没有brand模块的权限，admin有，可以分别登录验证一下，登录后把Bearer +token串贴到Authorize按钮,略
 ## <span style="color: pink;">业务篇</span>
 ## <span style="color: pink;">技术要点篇</span>
 ## <span style="color: pink;">部署篇</span>

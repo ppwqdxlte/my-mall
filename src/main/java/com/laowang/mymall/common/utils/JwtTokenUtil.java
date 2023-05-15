@@ -27,7 +27,7 @@ public class JwtTokenUtil {
     @Value("${jwt.secret}")
     private String secret;      // JWT加密码
     @Value("${jwt.expiration}")
-    private Long expiration;    // JWTtoken过期时间，单位min
+    private Long expiration;    // JWTtoken过期时间，单位（s）
 
     /**
      * 根据 "声明" 生成JWTtoken

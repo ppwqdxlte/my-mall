@@ -9,6 +9,6 @@ import org.mybatis.spring.annotation.MapperScan;
  * @create: 2023-05-11 15:37
  */
 @Configuration
-@MapperScan("com.laowang.mymall.mbg.mapper")
+@MapperScan({"com.laowang.mymall.mbg.mapper","com.laowang.mymall.dao"})
 public class MyBatisConfig {
 }

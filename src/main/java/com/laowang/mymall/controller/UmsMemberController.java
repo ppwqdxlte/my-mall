@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
  * @author: Laowang
  * @create: 2023-05-13 18:23
  */
-@Api(tags = "会员登录注册管理")
+@Api(tags = "SSO管理")
 @Controller
 @RequestMapping("/sso")
 public class UmsMemberController {

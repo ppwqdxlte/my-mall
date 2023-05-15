@@ -9,6 +9,7 @@ import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,12 +29,17 @@ public class PmsBrandController {
     private static final Logger LOGGER = LoggerFactory.getLogger(PmsBrandController.class);
     @Autowired
     private PmsBrandService pmsBrandService;
+
+    @PreAuthorize("hasAuthority('pms:brand:read')")
     @ApiOperation("获取所有品牌列表")
     @GetMapping("/")
     @ResponseBody
     public CommonResult<List<PmsBrand>> getBrandList(){
         return CommonResult.success(pmsBrandService.listAllBrands());
     }
+
+    @PreAuthorize("hasAuthority('pms:brand:create')")
+    @ApiOperation("新建品牌")
     @PostMapping("/")
     @ResponseBody
     public CommonResult createBrand(@RequestBody PmsBrand pmsBrand){
@@ -48,6 +54,8 @@ public class PmsBrandController {
         }
         return commonResult;
     }
+
+    @PreAuthorize("hasAuthority('pms:brand:delete')")
     @ApiOperation("删除对应id的品牌")
     @DeleteMapping("/{id}")
     @ResponseBody
@@ -61,6 +69,8 @@ public class PmsBrandController {
             return CommonResult.failed("删除失败");
         }
     }
+
+    @PreAuthorize("hasAuthority('pms:brand:update')")
     @ApiOperation("修改对应id的品牌信息")
     @PutMapping("/{id}")
     @ResponseBody
@@ -74,6 +84,8 @@ public class PmsBrandController {
             return CommonResult.failed("修改失败");
         }
     }
+
+    @PreAuthorize("hasAuthority('pms:brand:read')")
     @ApiOperation("查询对应id的品牌信息")
     @GetMapping("/{id}")
     @ResponseBody
@@ -87,6 +99,8 @@ public class PmsBrandController {
             return CommonResult.failed("查不到");
         }
     }
+
+    @PreAuthorize("hasAuthority('pms:brand:read')")
     @ApiOperation("分页查询品牌列表")
     @PostMapping(value = "/list")
     @ResponseBody

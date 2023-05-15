@@ -37,5 +37,7 @@ mybatis:
     - classpath*:com/**/mapper/*.xml
 # JWT配置
 jwt:
-  secret: jwt_123
-  expiration: 20
+  tokenHeader: Authorization  # JWT存储的请求头
+  secret: jwt_123             # JWT加密密钥
+  expiration: 86400           # JWT过期时间（60*60*24）
+  tokenHead: Bearer           # JWT负载的开头
