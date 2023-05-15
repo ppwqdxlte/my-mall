@@ -40,6 +40,10 @@ For further reference, please consider the following sections:
    + 修改Swagger的配置：实现调用接口自带Authorization头，略
    + 给PmsBrandController接口中的方法添加访问权限
    + 然后启动项目验证登录注册：test用户没有brand模块的权限，admin有，可以分别登录验证一下，登录后把Bearer +token串贴到Authorize按钮,略
+5. 整合SpringTask实现定时任务 （以批量修改超时订单为例）比Quartz更简单方便
+   + 认识Cron表达式：包含6~7个时间元素，在SpringTask中可用于指定任务的执行时间
+   + 添加SpringTaskConfig定时任务配置
+   + 添加OrderTimeOutCancelTask执行定时任务（什么样的任务取决于业务需求）
 ## <span style="color: pink;">业务篇</span>
 ## <span style="color: pink;">技术要点篇</span>
 ## <span style="color: pink;">部署篇</span>
