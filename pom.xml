@@ -111,6 +111,19 @@
             <artifactId>hibernate-validator</artifactId>
             <version>6.2.5.Final</version>
         </dependency>
+        <!-- data-elasticsearch 没有jakarta会无法启动，es-client这个pom默认7.17.9不兼容虚拟机运行的7.12.1docker容器，
+        所以格外添加了一个elasticsearch-rest-client指定7.12.1版本，覆盖掉data-es-starter的那个默认配置，
+        这就行了吗？不行！因为依赖之一的elasticsearch-java:7.12.1不存在！云仓库最低版本是7.15.0的！
+        所以还是改回去了，唯一的解决办法就是再见了7.12.1ES服务器，换成7.17版本的docker image吧-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.json</groupId>
+            <artifactId>jakarta.json-api</artifactId>
+            <version>2.0.1</version>
+        </dependency>
     </dependencies>
 
     <build>

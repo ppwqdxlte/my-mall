@@ -44,6 +44,12 @@ For further reference, please consider the following sections:
    + 认识Cron表达式：包含6~7个时间元素，在SpringTask中可用于指定任务的执行时间
    + 添加SpringTaskConfig定时任务配置
    + 添加OrderTimeOutCancelTask执行定时任务（什么样的任务取决于业务需求）
+6. 整合Elasticsearch实现商品搜索
+   + vmware添加Elasticsearch镜像并启动docker容器，验证
+   + 添加中文分词器插件，windows或docker安装kibana，修改kibana.yml添加可访问的ES-url，浏览器访问kibana.略
+   + 引入SpringDataElasticsearch依赖，它是Spring提供的一种以Spring Data风格来操作数据存储的方式，它可以避免编写大量的样板代码
+   + 添加ElasticsearchConfig配置类(因为yml配置已经过时)
+   + 添加Domain类（ES中对应文档类）EsProduct(最好和entity,vo,po等区分开不同类文件，毕竟注解都不一样)
 ## <span style="color: pink;">业务篇</span>
 ## <span style="color: pink;">技术要点篇</span>
 ## <span style="color: pink;">部署篇</span>
