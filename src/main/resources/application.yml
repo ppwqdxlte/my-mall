@@ -26,11 +26,15 @@ spring:
         min-idle: 0     # 最小空闲连接数
     timeout: 3000ms # 连接超时时间（毫秒）
   # spring-data配置
-#  data:
+  data:
     # Elasticsearch配置 ES8以后主要支持代码中配置
-#    elasticsearch:
-#      repositories:
-#        enabled: true
+    # MongoDB配置
+    mongodb:
+      host: 192.168.3.128 # mongodb的连接地址
+      port: 27011 # mongodb的连接端口号
+      username: "usermymall"
+      password: 'mymall123' # 密码必须单引号括起来，否则报错
+      database: mymallportal # mongodb的连接的数据库,别带 “-” 短横线了吧！因为去mongo里面测试中间有符号会指令错误！
 # Redis自定义key
 redis:
   key:

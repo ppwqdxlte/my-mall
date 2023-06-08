@@ -50,6 +50,20 @@ For further reference, please consider the following sections:
    + 引入SpringDataElasticsearch依赖，它是Spring提供的一种以Spring Data风格来操作数据存储的方式，它可以避免编写大量的样板代码
    + 添加ElasticsearchConfig配置类(因为yml配置已经过时)
    + 添加Domain类（ES中对应文档类）EsProduct(最好和entity,vo,po等区分开不同类文件，毕竟注解都不一样)
+   + 添加document/repository/dao.xml/Dao/Service/Controller略
+     - 添加Swagger2Config文档的api扫描范围
+     - 添加MyBatisConfig的mapper扫描范围
+   + 启动验证
+7. 整合MongoDB实现文档操作
+   + 添加SpringDataMongoDB依赖，以Spring Data的方式操作MongoDB，
+   + 【注意】点进依赖可知驱动版本为4.6.1，需要去spring.io官网查询兼容的数据库服务器版本！
+     - https://docs.spring.io/spring-data/mongodb/docs/3.4.11/reference/html/#compatibility.matrix 【文档版本3.4.11根据pom文件可知】
+     - 然后创建兼容版本的mongodb服务器docker容器！5.0.X都行，mongodb官网只提供5.0.18的社区版安装包，仅凭docker search mongo:5.0.18肯定搜不到，但能直接安装docker pull mongo:5.0.18
+   + 去mongodb01容器里访问mongo,创建数据库（mymallportal）和用户（usermymall）【注意】务必先创建数据库，然后use该库，在库里创建user并授权!!!
+   + 修改application.yml配置
+   + 添加document/repository/service/impl/controller等
+      - 添加swagger配置
+   + 接口测试
 ## <span style="color: pink;">业务篇</span>
 ## <span style="color: pink;">技术要点篇</span>
 ## <span style="color: pink;">部署篇</span>
