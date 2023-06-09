@@ -1,5 +1,7 @@
 package com.laowang.mymall.nosql.mongodb.document;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -13,6 +15,8 @@ import java.util.Date;
  * @create: 2023-06-08 14:54
  */
 @Document
+@Getter
+@Setter
 public class MgMemberReadHistory {
     @Id
     private String id;
@@ -28,85 +32,5 @@ public class MgMemberReadHistory {
     private String productPrice;
     private Date createTime;
 
-    // getter and setter
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public Long getMemberId() {
-        return memberId;
-    }
-
-    public void setMemberId(Long memberId) {
-        this.memberId = memberId;
-    }
-
-    public String getMemberNickname() {
-        return memberNickname;
-    }
-
-    public void setMemberNickname(String memberNickname) {
-        this.memberNickname = memberNickname;
-    }
-
-    public String getMemberIcon() {
-        return memberIcon;
-    }
-
-    public void setMemberIcon(String memberIcon) {
-        this.memberIcon = memberIcon;
-    }
-
-    public Long getProductId() {
-        return productId;
-    }
-
-    public void setProductId(Long productId) {
-        this.productId = productId;
-    }
-
-    public String getProductName() {
-        return productName;
-    }
-
-    public void setProductName(String productName) {
-        this.productName = productName;
-    }
-
-    public String getProductPic() {
-        return productPic;
-    }
-
-    public void setProductPic(String productPic) {
-        this.productPic = productPic;
-    }
-
-    public String getProductSubTitle() {
-        return productSubTitle;
-    }
-
-    public void setProductSubTitle(String productSubTitle) {
-        this.productSubTitle = productSubTitle;
-    }
-
-    public String getProductPrice() {
-        return productPrice;
-    }
-
-    public void setProductPrice(String productPrice) {
-        this.productPrice = productPrice;
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
+    // Lombok 省略了 getter and setter
 }

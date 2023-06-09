@@ -35,6 +35,13 @@ spring:
       username: "usermymall"
       password: 'mymall123' # 密码必须单引号括起来，否则报错
       database: mymallportal # mongodb的连接的数据库,别带 “-” 短横线了吧！因为去mongo里面测试中间有符号会指令错误！
+  # spring-amqp和spring-data同级，而amqp等同于rabbitMQ
+  rabbitmq:
+    host: 192.168.3.128
+    port: 5671
+    virtual-host: mymall # rabbitmq的虚拟host，【注意】名称一定要和管理页面user可访问的vhost名称保持一致！！！
+    username: usermymall
+    password: mymall123
 # Redis自定义key
 redis:
   key:

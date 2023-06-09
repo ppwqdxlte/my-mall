@@ -64,6 +64,26 @@ For further reference, please consider the following sections:
    + 添加document/repository/service/impl/controller等
       - 添加swagger配置
    + 接口测试
+8. 整合RabbitMQ实现延迟消息
+   + 业务场景说明：用于解决用户下单以后，订单超时如何取消订单的问题。
+     - 用户进行下单操作（会有锁定商品库存、使用优惠券、积分一系列的操作）
+     - 生成订单，获取订单的id
+     - 获取到设置的订单超时时间（假设设置的为20分钟不支付取消订单）
+     - 按订单超时时间发送一个延迟消息给RabbitMQ，让它在订单超时后触发取消订单的操作
+     - 如果用户没有支付，进行取消订单操作（释放锁定商品库存、返还优惠券、返回积分一系列操作）。
+   + pom添加SpringAMQP的rabbitmq依赖，版本支持到2.7.5；再添加Lombok依赖，版本支持到1.18.24
+   + 虚拟机安装RabbitMQ服务器的docker,选用最新版本3.12.0，开放端口号5671
+   + application.yml中添加rabbitmq的配置
+   + rabbitmq管理页面添加用户usermymall和密码，添加虚拟host(mymall),并给usermymall赋予mymall的权限
+   + 启动不报错就说明配置没问题
+   + 添加消息队列枚举配置类QueueEnum
+     - 添加RabbitMQ的配置类
+     - 重启项目，去rabbitMQ管理页面查看 Exchanges && Queues,发现多了刚才配置的交换器和队列
+     - 添加延迟消息的发送者CancelOrderSender
+     - 添加取消订单消息的接收者CancelOrderReceiver
+     - 添加OmsPortalOrderService接口 和 实现类...Impl
+     - 添加OmsPortalOrderController控制器，添加swagger配置扫描包
+     - 重启项目测试接口
 ## <span style="color: pink;">业务篇</span>
 ## <span style="color: pink;">技术要点篇</span>
 ## <span style="color: pink;">部署篇</span>
