@@ -40,7 +40,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     private void sendDelayMessageCancelOrder(Long orderId){
-        long delayTimes = 20 * 60 * 1000;// 20分钟对应的毫秒
+        long delayTimes = 2 * 60 * 1000;// 2分钟对应的毫秒，2分钟不付款就取消订单
         // 发送延迟消息
         orderSender.sendOrderCancelTtlMessage(orderId,delayTimes);
     }

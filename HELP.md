@@ -1,13 +1,6 @@
-# Getting Started
-
-### Reference Documentation
-
-For further reference, please consider the following sections:
-
-* [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
-* [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/2.7.11/maven-plugin/reference/html/)
-* [Create an OCI image](https://docs.spring.io/spring-boot/docs/2.7.11/maven-plugin/reference/html/#build-image)
-
+### 账号密码：
+用mall-tiny.sql创建的表用户密码为 admin/123456
+用mall.sql创建的表，超级管理员用户密码可用 admin/micro123 test/123456
 # <div style="color: purple;text-align: center;">大纲</div>
 ## <span style="color: pink;">架构篇</span>
 1. 整合SpringBoot+MyBatis搭建基本骨架
@@ -96,7 +89,18 @@ For further reference, please consider the following sections:
     + 启动测试
 ## <span style="color: pink;">业务篇</span>
 1. mall数据库表结构概览
-    + 
+    + PowerDesigner数据库设计文件
+      - 商品管理：https://github.com/macrozheng/mall-learning/blob/master/document/pdm/mall_pms.pdm
+      - 订单管理：https://github.com/macrozheng/mall-learning/blob/master/document/pdm/mall_oms.pdm
+      - 营销管理：https://github.com/macrozheng/mall-learning/blob/master/document/pdm/mall_sms.pdm
+      - 内容管理：https://github.com/macrozheng/mall-learning/blob/master/document/pdm/mall_cms.pdm
+      - 用户管理：https://github.com/macrozheng/mall-learning/blob/master/document/pdm/mall_ums.pdm
+    + MindMaster功能思维导图
+      - 商品管理：https://github.com/macrozheng/mall-learning/blob/master/document/mind/pms.emmx
+      - 订单管理：https://github.com/macrozheng/mall-learning/blob/master/document/mind/oms.emmx
+      - 营销管理：https://github.com/macrozheng/mall-learning/blob/master/document/mind/sms.emmx
+      - 内容管理：https://github.com/macrozheng/mall-learning/blob/master/document/mind/cms.emmx
+      - 用户管理：https://github.com/macrozheng/mall-learning/blob/master/document/mind/ums.emmx
 2. 商品模块数据库表解析（一）
 3. 商品模块数据库表解析（二）
 4. 订单模块数据库表解析（一）
