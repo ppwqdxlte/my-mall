@@ -84,7 +84,28 @@ For further reference, please consider the following sections:
      - 添加OmsPortalOrderService接口 和 实现类...Impl
      - 添加OmsPortalOrderController控制器，添加swagger配置扫描包
      - 重启项目测试接口
+9. 整合OSS实现文件上传(阿里云对象存储服务 Object Storage Service)
+   + 收费项目了解一下OSS处理流程就行，不购买了，我个人当然选择用开源免费版的minIO搭建私有云对象存储服务了！
+10. 整合minIO实现文件上传(开源的对我最合适)
+    + 引入依赖，参考官方文档 https://www.minio.org.cn/download.shtml#/docker
+    + 根据pom安装适合版本的 minio 服务器容器;服务器docker pull minio/minio
+    + 访问http://192.168.3.128:9091设置用户/访问账户/组/桶，并操作一下
+    + 查看官方JavaSDK-minio指导手册https://min.io/docs/minio/linux/developers/java/minio-java.html
+    + 配置application.yml
+    + 添加minio属性类MinioProperties,配置类，读写策略，工具类，API接口等
+    + 启动测试
 ## <span style="color: pink;">业务篇</span>
+1. mall数据库表结构概览
+    + 
+2. 商品模块数据库表解析（一）
+3. 商品模块数据库表解析（二）
+4. 订单模块数据库表解析（一）
+5. 订单模块数据库表解析（二）
+6. 订单模块数据库表解析（三）
+7. 营销模块数据库表解析（一）
+8. 营销模块数据库表解析（二）
+9. 营销模块数据库表解析（三）
+10. 权限控制（菜单/路由(资源)/角色/用户），问题是能不能更细粒度？比如精确到表字段等？
 ## <span style="color: pink;">技术要点篇</span>
 ## <span style="color: pink;">部署篇</span>
 ## <span style="color: pink;">参考篇</span>

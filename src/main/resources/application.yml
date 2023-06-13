@@ -30,25 +30,36 @@ spring:
     # Elasticsearch配置 ES8以后主要支持代码中配置
     # MongoDB配置
     mongodb:
-      host: 192.168.3.128 # mongodb的连接地址
-      port: 27011 # mongodb的连接端口号
+      host: 192.168.3.128     # mongodb的连接地址
+      port: 27011             # mongodb的连接端口号
       username: "usermymall"
-      password: 'mymall123' # 密码必须单引号括起来，否则报错
-      database: mymallportal # mongodb的连接的数据库,别带 “-” 短横线了吧！因为去mongo里面测试中间有符号会指令错误！
+      password: 'mymall123'   # 密码必须单引号括起来，否则报错
+      database: mymallportal  # mongodb的连接的数据库,别带 “-” 短横线了吧！因为去mongo里面测试中间有符号会指令错误！
   # spring-amqp和spring-data同级，而amqp等同于rabbitMQ
   rabbitmq:
     host: 192.168.3.128
     port: 5671
-    virtual-host: mymall # rabbitmq的虚拟host，【注意】名称一定要和管理页面user可访问的vhost名称保持一致！！！
+    virtual-host: mymall      # rabbitmq的虚拟host，【注意】名称一定要和管理页面user可访问的vhost名称保持一致！！！
     username: usermymall
     password: mymall123
+  # 配置文件上传大小限制
+  servlet:
+    multipart:
+      max-file-size: 500MB
+      max-request-size: 600MB
+# minio配置 (仅供配置类映射属性值使用)
+minio:
+  endpoint: http://192.168.3.128:9010                 #MinIO服务所在地址
+  bucket: mymall                                      #默认存储桶的名称，程序中可根据业务自行创建桶
+  accessKey: 0AIK8LX7MOB5DH1RLEWQ                     #访问的key（账号）
+  secretKey: w7X2+hpA+Xi5ZNxEK+6zCTQ3SJIFblkBSoaJCj6Y #访问的秘钥（密码）
 # Redis自定义key
 redis:
   key:
     prefix:
       authCode: "my-mall-portal:authCode:"
     expire:
-      authCode: 120   # 验证码超期时间
+      authCode: 120                                   # 验证码超期时间
 # MyBatis配置
 mybatis:
   mapper-locations:
