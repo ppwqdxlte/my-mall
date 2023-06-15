@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <artifactId>my-mall</artifactId>
+        <groupId>com.laowang.mymall</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    <groupId>com.laowang.mymall</groupId>
+    <artifactId>mall-demo</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>mall-demo</name>
+    <description>mall-demo</description>
+    <packaging>jar</packaging> <!-- 父模块my-mall的打包方式必须pom，本模块mall-demo如果没有进一步的子模块，打包方式jar即可 -->
+
+    <properties>
+        <java.version>8</java.version>
+    </properties>
+
+<!-- 父项目目前还没有剥离完，所以没办法依赖全放入dependencies中给子类自动全部继承了，下面的配置是所需要的最小配置，
+    在父类没剥离完之前，需要手动排除不需要的依赖，从而避免不必要的配置
+    <dependencies>
+        &lt;!&ndash; 奇怪，父pom都没有starter-jdbc,子pom这里居然要显式引用 &ndash;&gt;
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+        &lt;!&ndash;集成druid连接池&ndash;&gt;
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+        </dependency>
+        &lt;!&ndash;Mysql数据库驱动&ndash;&gt;
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.31</version>
+        </dependency>
+        &lt;!&ndash; Swagger &ndash;&gt;
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-boot-starter</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+        &lt;!&ndash;Swagger-UI API文档生产工具&ndash;&gt;
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+    </dependencies>
+-->
+    <!-- 在父类没剥离完之前，需要手动排除不需要的依赖，从而避免不必要的配置，
+        启动子模块后发现依然自动检查mongodb等等，说明排除失败了，
+        说明exclusions是骗子，不好使！只能给对应排除项加<scope>test</scope>了，覆盖掉父项目的配置，继承的排除项仅能在测试环境引用，
+        其它环境不引入该依赖，这个坏处就是没法正常使用test环境，但目前也只能这样了 -->
+    <dependencies>
+        <!-- 不需要！ybatis -->
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <!-- 不需要！MyBatis分页插件-->
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <!-- jdbc必须的 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+        <!-- 不需要！MyBatis 生成器 -->
+        <dependency>
+            <groupId>org.mybatis.generator</groupId>
+            <artifactId>mybatis-generator-core</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <!-- 不需要！redis依赖（驱动或客户端） -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <!-- 不需要！Spring Security -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <!-- 不需要！JWT(JSON WEB TOKEN 登录支持) -->
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <!-- 不需要！Hutool工具包 -->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <!-- 不需要！表单验证 -->
+        <dependency>
+            <groupId>org.hibernate.validator</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <!-- 不需要！data-elasticsearch -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.json</groupId>
+            <artifactId>jakarta.json-api</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <!-- 不需要！mongodb相关依赖-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-mongodb</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <!-- 不需要！消息队列相关依赖-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <!-- 不需要！lombok依赖-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <!-- 不需要！minio搭建开源私有云实现文件存储 -->
+        <dependency>
+            <groupId>io.minio</groupId>
+            <artifactId>minio</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

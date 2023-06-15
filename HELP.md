@@ -87,6 +87,8 @@
     + 配置application.yml
     + 添加minio属性类MinioProperties,配置类，读写策略，工具类，API接口等
     + 启动测试
+11. 项目架构模块化组件化(之前项目结构是一个Spring-boot整体，之后逐渐拆分各种子模块)
+    + 创建mall-demo子模块：运行查看不报错就说明分离方法可行
 ## <span style="color: pink;">业务篇</span>
 1. mall数据库表结构概览
     + PowerDesigner数据库设计文件

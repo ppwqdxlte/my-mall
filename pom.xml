@@ -8,14 +8,20 @@
         <version>2.7.11</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.laowang</groupId>
+    <groupId>com.laowang.mymall</groupId>
     <artifactId>my-mall</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>my-mall</name>
     <description>my-mall</description>
+    <packaging>pom</packaging> <!-- 父模块打包方式不指定的话，默认就是jar，必须明确指定为pom方式，说明为【聚合工程】 -->
     <properties>
         <java.version>1.8</java.version>
     </properties>
+    <!-- 模块化 -->
+    <modules>
+        <module>mall-demo</module>
+    </modules>
+    <!-- 公共所有子模块自动继承的依赖 -->
     <dependencies>
         <!-- 默认 -->
         <dependency>
@@ -41,6 +47,8 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
+
+        <!-- 贴进来没办法，父项目还没有完全剥离子模块，还得需要下面这些依赖，放入dependencyManagement后父项目自己也引用不到了 -->
         <!-- mybatis -->
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
@@ -149,8 +157,125 @@
             <artifactId>minio</artifactId>
             <version>8.4.5</version>
         </dependency>
+
     </dependencies>
 
+    <!-- 把dependencies放入dependencyManagement中的目的就是避免子项目（子模块）自动继承父模块的所有依赖，
+        子项目如果想继承management里面的依赖，必须在子pom里显式引用，不加version和scope也会自动读取父pom的配置，
+        这就是dependencies和dependencyManagement的重大区别-->
+    <!--<dependencyManagement>
+        <dependencies>
+            &lt;!&ndash; mybatis &ndash;&gt;
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>3.0.0</version>
+            </dependency>
+            &lt;!&ndash;MyBatis分页插件&ndash;&gt;
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper</artifactId>
+                <version>5.3.2</version>
+            </dependency>
+            &lt;!&ndash;集成druid连接池&ndash;&gt;
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>1.1.10</version>
+            </dependency>
+            &lt;!&ndash; MyBatis 生成器 &ndash;&gt;
+            <dependency>
+                <groupId>org.mybatis.generator</groupId>
+                <artifactId>mybatis-generator-core</artifactId>
+                <version>1.3.7</version>
+            </dependency>
+            &lt;!&ndash;Mysql数据库驱动&ndash;&gt;
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>8.0.31</version>
+            </dependency>
+            &lt;!&ndash; Swagger &ndash;&gt;
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-boot-starter</artifactId>
+                <version>3.0.0</version>
+            </dependency>
+            &lt;!&ndash;Swagger-UI API文档生产工具&ndash;&gt;
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>3.0.0</version>
+            </dependency>
+            &lt;!&ndash; redis依赖（驱动或客户端） &ndash;&gt;
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-redis</artifactId>
+            </dependency>
+            &lt;!&ndash; Spring Security &ndash;&gt;
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-security</artifactId>
+            </dependency>
+            &lt;!&ndash; JWT(JSON WEB TOKEN 登录支持) &ndash;&gt;
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt</artifactId>
+                <version>0.9.1</version>
+            </dependency>
+            &lt;!&ndash; Hutool工具包 &ndash;&gt;
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>5.8.11</version>
+            </dependency>
+            &lt;!&ndash; 表单验证 &ndash;&gt;
+            <dependency>
+                <groupId>org.hibernate.validator</groupId>
+                <artifactId>hibernate-validator</artifactId>
+                <version>6.2.5.Final</version>
+            </dependency>
+            &lt;!&ndash; data-elasticsearch 没有jakarta会无法启动，es-client这个pom默认7.17.9不兼容虚拟机运行的7.12.1docker容器，
+            所以格外添加了一个elasticsearch-rest-client指定7.12.1版本，覆盖掉data-es-starter的那个默认配置，
+            这就行了吗？不行！因为依赖之一的elasticsearch-java:7.12.1不存在！云仓库最低版本是7.15.0的！
+            所以还是改回去了，唯一的解决办法就是再见了7.12.1ES服务器，换成8.4.1版本的docker,且8.4.1对es客户端最低要求是7.17.0，
+            此7.17.9恰好满足需求&ndash;&gt;
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
+            </dependency>
+            <dependency>
+                <groupId>jakarta.json</groupId>
+                <artifactId>jakarta.json-api</artifactId>
+                <version>2.0.1</version>
+            </dependency>
+            &lt;!&ndash;-mongodb相关依赖&ndash;&gt;
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-mongodb</artifactId>
+            </dependency>
+            &lt;!&ndash;消息队列相关依赖&ndash;&gt;
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-amqp</artifactId>
+                <version>2.7.5</version>
+            </dependency>
+            &lt;!&ndash;lombok依赖&ndash;&gt;
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>1.18.24</version>
+                <optional>true</optional>
+            </dependency>
+            &lt;!&ndash; minio搭建开源私有云实现文件存储 &ndash;&gt;
+            <dependency>
+                <groupId>io.minio</groupId>
+                <artifactId>minio</artifactId>
+                <version>8.4.5</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>-->
+    <!-- 构建 -->
     <build>
         <plugins>
             <plugin>
@@ -159,6 +284,21 @@
                 <version>2.7.11</version>
             </plugin>
         </plugins>
+        <!-- packaging=pom聚合工程的resources无法编译，就算添加了下面的配置也不好使！！省省心吧。 -->
+        <!--<resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>*.yml</include>
+                    <include>*.properties</include>
+                    <include>*.xml</include>
+                    <include>com/laowang/mymall/mbg/mapper/*.xml</include>
+                    <include>mapper/*.xml</include>
+                    <include>**/*</include>
+                    <include>*</include>
+                </includes>
+            </resource>
+        </resources>-->
     </build>
 
 </project>
