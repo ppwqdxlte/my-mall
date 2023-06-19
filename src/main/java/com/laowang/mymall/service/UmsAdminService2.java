@@ -1,7 +1,7 @@
 package com.laowang.mymall.service;
 
-import com.laowang.mymall.mbg.model.UmsAdmin;
-import com.laowang.mymall.mbg.model.UmsPermission;
+import com.laowang.mymall.mallmbg.model.UmsAdmin;
+import com.laowang.mymall.mallmbg.model.UmsPermission;
 
 import java.util.List;
 

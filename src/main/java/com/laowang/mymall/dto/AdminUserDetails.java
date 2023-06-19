@@ -1,7 +1,7 @@
 package com.laowang.mymall.dto;
 
-import com.laowang.mymall.mbg.model.UmsAdmin;
-import com.laowang.mymall.mbg.model.UmsPermission;
+import com.laowang.mymall.mallmbg.model.UmsAdmin;
+import com.laowang.mymall.mallmbg.model.UmsPermission;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

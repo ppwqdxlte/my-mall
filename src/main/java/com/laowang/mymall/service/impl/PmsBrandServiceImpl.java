@@ -1,9 +1,9 @@
 package com.laowang.mymall.service.impl;
 
 import com.github.pagehelper.PageHelper;
-import com.laowang.mymall.mbg.mapper.PmsBrandMapper;
-import com.laowang.mymall.mbg.model.PmsBrand;
-import com.laowang.mymall.mbg.model.PmsBrandExample;
+import com.laowang.mymall.mallmbg.mapper.PmsBrandMapper;
+import com.laowang.mymall.mallmbg.model.PmsBrand;
+import com.laowang.mymall.mallmbg.model.PmsBrandExample;
 import com.laowang.mymall.service.PmsBrandService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

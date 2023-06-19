@@ -1,27 +1,16 @@
 package com.laowang.mymall.service.impl;
 
-import com.laowang.mymall.common.utils.JwtTokenUtil;
 import com.laowang.mymall.dao.UmsAdminRoleRelationDao;
-import com.laowang.mymall.mbg.mapper.UmsAdminMapper;
-import com.laowang.mymall.mbg.model.UmsAdmin;
-import com.laowang.mymall.mbg.model.UmsAdminExample;
-import com.laowang.mymall.mbg.model.UmsPermission;
+import com.laowang.mymall.mallmbg.mapper.UmsAdminMapper;
+import com.laowang.mymall.mallmbg.model.UmsAdmin;
+import com.laowang.mymall.mallmbg.model.UmsAdminExample;
+import com.laowang.mymall.mallmbg.model.UmsPermission;
 import com.laowang.mymall.service.UmsAdminService2;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.security.authentication.BadCredentialsException;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.AuthenticationException;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
 import java.util.List;
 
 /**

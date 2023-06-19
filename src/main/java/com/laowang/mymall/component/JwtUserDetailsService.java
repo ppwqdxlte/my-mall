@@ -1,8 +1,8 @@
 package com.laowang.mymall.component;
 
 import com.laowang.mymall.dto.AdminUserDetails;
-import com.laowang.mymall.mbg.model.UmsAdmin;
-import com.laowang.mymall.mbg.model.UmsPermission;
+import com.laowang.mymall.mallmbg.model.UmsAdmin;
+import com.laowang.mymall.mallmbg.model.UmsPermission;
 import com.laowang.mymall.service.UmsAdminService2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

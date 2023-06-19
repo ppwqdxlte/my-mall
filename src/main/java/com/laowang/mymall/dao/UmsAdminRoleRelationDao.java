@@ -1,6 +1,6 @@
 package com.laowang.mymall.dao;
 
-import com.laowang.mymall.mbg.model.UmsPermission;
+import com.laowang.mymall.mallmbg.model.UmsPermission;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 

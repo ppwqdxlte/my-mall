@@ -2,10 +2,10 @@ package com.laowang.mymall.service.impl;
 
 import com.laowang.mymall.common.utils.JwtTokenUtil;
 import com.laowang.mymall.dao.UmsAdminRoleRelationDao;
-import com.laowang.mymall.mbg.mapper.UmsAdminMapper;
-import com.laowang.mymall.mbg.model.UmsAdmin;
-import com.laowang.mymall.mbg.model.UmsAdminExample;
-import com.laowang.mymall.mbg.model.UmsPermission;
+import com.laowang.mymall.mallmbg.mapper.UmsAdminMapper;
+import com.laowang.mymall.mallmbg.model.UmsAdmin;
+import com.laowang.mymall.mallmbg.model.UmsAdminExample;
+import com.laowang.mymall.mallmbg.model.UmsPermission;
 import com.laowang.mymall.service.UmsAdminService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

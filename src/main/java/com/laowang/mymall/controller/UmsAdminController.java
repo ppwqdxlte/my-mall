@@ -2,8 +2,8 @@ package com.laowang.mymall.controller;
 
 import com.laowang.mymall.common.api.CommonResult;
 import com.laowang.mymall.dto.UmsAdminLoginParams;
-import com.laowang.mymall.mbg.model.UmsAdmin;
-import com.laowang.mymall.mbg.model.UmsPermission;
+import com.laowang.mymall.mallmbg.model.UmsAdmin;
+import com.laowang.mymall.mallmbg.model.UmsPermission;
 import com.laowang.mymall.service.UmsAdminService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

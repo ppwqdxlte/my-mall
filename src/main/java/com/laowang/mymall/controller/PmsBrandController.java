@@ -2,7 +2,7 @@ package com.laowang.mymall.controller;
 
 import com.laowang.mymall.common.api.CommonPage;
 import com.laowang.mymall.common.api.CommonResult;
-import com.laowang.mymall.mbg.model.PmsBrand;
+import com.laowang.mymall.mallmbg.model.PmsBrand;
 import com.laowang.mymall.service.PmsBrandService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

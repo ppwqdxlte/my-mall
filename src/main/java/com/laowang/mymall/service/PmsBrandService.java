@@ -1,6 +1,6 @@
 package com.laowang.mymall.service;
 
-import com.laowang.mymall.mbg.model.PmsBrand;
+import com.laowang.mymall.mallmbg.model.PmsBrand;
 
 import java.util.List;
 
