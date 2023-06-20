@@ -1,4 +1,4 @@
-package com.laowang.mymall.nosql.elasticsearch.document;
+package com.laowang.mymall.mallsearch.document;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
@@ -11,15 +11,15 @@ import java.util.List;
 
 /**
  * @program: my-mall
- * @description: ES-商品模块-商品信息
+ * @description: es-商品模块商品document
  * @notation: ES的document可不同于数据库对应的实体类！有些属性doc没有，但entity有，有些entity没有的es的doc却有，
  *  所以务必使用不同的类文件分别定义！！
  * @author: Laowang
- * @create: 2023-05-27 14:36
+ * @create: 2023-06-20 13:09
  */
 @Document(indexName = "pms_product")
 public class EsPmsProduct implements Serializable {
-    private static final long serialVersionUID = -1L;
+    private static final Long serialVersionUID = 1L;
 
     @Id
     private Long id;
@@ -38,10 +38,10 @@ public class EsPmsProduct implements Serializable {
 //    @Field(analyzer = "ik_max_word",type = FieldType.Text)
     @Field(type = FieldType.Text)
     private String name;
-//    @Field(analyzer = "ik_max_word",type = FieldType.Text)
+    //    @Field(analyzer = "ik_max_word",type = FieldType.Text)
     @Field(type = FieldType.Text)
     private String subTitle;
-//    @Field(analyzer = "ik_max_word",type = FieldType.Text)
+    //    @Field(analyzer = "ik_max_word",type = FieldType.Text)
     @Field(type = FieldType.Text)
     private String keywords;
     private BigDecimal price;

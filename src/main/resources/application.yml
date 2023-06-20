@@ -30,7 +30,6 @@ spring:
     timeout: 3000ms # 连接超时时间（毫秒）
   # spring-data配置
   data:
-    # Elasticsearch配置 ES8以后主要支持代码中配置
     # MongoDB配置
     mongodb:
       host: 192.168.3.128     # mongodb的连接地址

@@ -33,7 +33,6 @@ public class Swagger2Config {
                 .select()
                 // 为当前包下controller生成API文档
                 .apis(RequestHandlerSelectors.basePackage("com.laowang.mymall.controller")
-                        .or(RequestHandlerSelectors.basePackage("com.laowang.mymall.nosql.elasticsearch.controller"))
                         .or(RequestHandlerSelectors.basePackage("com.laowang.mymall.nosql.mongodb.controller"))
                         .or(RequestHandlerSelectors.basePackage("com.laowang.mymall.mq.rabbitmq.controller"))
                         .or(RequestHandlerSelectors.basePackage("com.laowang.mymall.oss.minio.controller")))

@@ -9,4 +9,17 @@ spring:
     pathmatch:
       # 避免因 swagger 启动报错，修改匹配策略
       matching-strategy: ant_path_matcher
+  # 数据源配置
+  datasource:
+    # druid连接池最简单的配置
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.3.128:33801/tlmallswarmmymall?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    username: tlmalladmin
+    password: Tlmall_123456
   # elasticsearch 配置拿到源码中，不在yml中配置
+# MyBatis配置
+mybatis:
+  mapper-locations:
+    - classpath:mapper/*.xml
+    - classpath*:com/**/mapper/*.xml

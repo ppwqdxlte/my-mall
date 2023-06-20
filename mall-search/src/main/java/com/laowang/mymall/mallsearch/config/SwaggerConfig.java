@@ -11,9 +11,7 @@ import org.springframework.boot.actuate.endpoint.web.servlet.WebMvcEndpointHandl
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
-import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.RestController;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -63,8 +61,7 @@ public class SwaggerConfig {
                 .apiInfo(apiInfo)
                 .groupName("my-mall/mall-search API group")
                 .select()
-                .apis(RequestHandlerSelectors.withClassAnnotation(RestController.class))
-                .apis(RequestHandlerSelectors.withClassAnnotation(Controller.class))
+                .apis(RequestHandlerSelectors.basePackage("com.laowang.mymall.mallsearch.controller"))
                 .paths(PathSelectors.any())
                 .build();
     }

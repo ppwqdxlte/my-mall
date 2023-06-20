@@ -1,4 +1,4 @@
-package com.laowang.mymall.nosql.elasticsearch.document;
+package com.laowang.mymall.mallsearch.document;
 
 import org.springframework.data.elasticsearch.annotations.Field;
 import org.springframework.data.elasticsearch.annotations.FieldType;
@@ -7,13 +7,13 @@ import java.io.Serializable;
 
 /**
  * @program: my-mall
- * @description: ES-商品模块-产品-属性-值
+ * @description: es-商品模块商品属性值document
  * @author: Laowang
- * @create: 2023-05-28 11:12
+ * @create: 2023-06-20 13:50
  */
 public class EsPmsProductAttributeValue implements Serializable {
+    private static final Long serialVersionUID = 1L;
 
-    private static final long serialVersionUID = 1L;
     private Long id;
 
     private Long productId;

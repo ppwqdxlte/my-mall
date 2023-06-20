@@ -1,15 +1,15 @@
-package com.laowang.mymall.nosql.elasticsearch.service;
+package com.laowang.mymall.mallsearch.service;
 
-import com.laowang.mymall.nosql.elasticsearch.document.EsPmsProduct;
+import com.laowang.mymall.mallsearch.document.EsPmsProduct;
 import org.springframework.data.domain.Page;
 
 import java.util.List;
 
 /**
  * @program: my-mall
- * @description: ES-商品模块-搜索管理Service
+ * @description: es-商品模块商品service
  * @author: Laowang
- * @create: 2023-05-28 12:53
+ * @create: 2023-06-20 14:12
  */
 public interface EsPmsProductService {
     /**

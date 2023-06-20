@@ -109,17 +109,6 @@
             <artifactId>hibernate-validator</artifactId>
             <scope>test</scope>
         </dependency>
-        <!-- 不需要！data-elasticsearch -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>jakarta.json</groupId>
-            <artifactId>jakarta.json-api</artifactId>
-            <scope>test</scope>
-        </dependency>
         <!-- 不需要！mongodb相关依赖-->
         <dependency>
             <groupId>org.springframework.boot</groupId>

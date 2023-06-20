@@ -11,7 +11,6 @@ import org.mybatis.spring.annotation.MapperScan;
 @Configuration
 @MapperScan({
         "com.laowang.mymall.mallmbg.mapper",
-        "com.laowang.mymall.dao",
-        "com.laowang.mymall.nosql.elasticsearch.dao"})
+        "com.laowang.mymall.dao"})
 public class MyBatisConfig {
 }

@@ -1,6 +1,6 @@
-package com.laowang.mymall.nosql.elasticsearch.repository;
+package com.laowang.mymall.mallsearch.repository;
 
-import com.laowang.mymall.nosql.elasticsearch.document.EsPmsProduct;
+import com.laowang.mymall.mallsearch.document.EsPmsProduct;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
@@ -8,13 +8,13 @@ import org.springframework.stereotype.Component;
 
 /**
  * @program: my-mall
- * @description: ES-商品模块-操作类
- * @Note: 相当于Mybatis中的Mapper.java + mapper.XML
+ * @description: es-商品模块商品repository
  * @author: Laowang
- * @create: 2023-05-28 12:36
+ * @create: 2023-06-20 14:03
  */
 @Component
 public interface EsPmsProductRepository extends ElasticsearchRepository<EsPmsProduct,Long> {
+
     /**
      * 商品搜索查询
      * @param name          商品名称

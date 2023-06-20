@@ -22,11 +22,13 @@
             <artifactId>mall-mbg</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
-        <!-- ES客户端 -->
+        <!-- ES客户端，必须指定版本号，否则找不到依赖无法启动 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
+            <version>2.7.11</version>
         </dependency>
+        <!-- 必须添加jakarta且指定版本2.X以上,否则启动es报错 -->
         <dependency>
             <groupId>jakarta.json</groupId>
             <artifactId>jakarta.json-api</artifactId>
