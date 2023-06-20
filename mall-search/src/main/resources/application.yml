@@ -1,0 +1,12 @@
+# 服务器配置
+server:
+  # 设置端口
+  port: 8081
+# spring 配置
+spring:
+  # mvc 配置
+  mvc:
+    pathmatch:
+      # 避免因 swagger 启动报错，修改匹配策略
+      matching-strategy: ant_path_matcher
+  # elasticsearch 配置拿到源码中，不在yml中配置

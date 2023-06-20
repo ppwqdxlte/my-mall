@@ -21,6 +21,7 @@
     <modules>
         <module>mall-demo</module>
         <module>mall-mbg</module>
+        <module>mall-search</module>
     </modules>
     <!-- 公共所有子模块自动继承的依赖 -->
     <dependencies>
@@ -116,11 +117,11 @@
             <version>5.8.11</version>
         </dependency>
         <!-- 表单验证 -->
-        <dependency>
-            <groupId>org.hibernate.validator</groupId>
-            <artifactId>hibernate-validator</artifactId>
-            <version>6.2.5.Final</version>
-        </dependency>
+            <dependency>
+                <groupId>org.hibernate.validator</groupId>
+                <artifactId>hibernate-validator</artifactId>
+                <version>6.2.5.Final</version>
+            </dependency>
         <!-- data-elasticsearch 没有jakarta会无法启动，es-client这个pom默认7.17.9不兼容虚拟机运行的7.12.1docker容器，
         所以格外添加了一个elasticsearch-rest-client指定7.12.1版本，覆盖掉data-es-starter的那个默认配置，
         这就行了吗？不行！因为依赖之一的elasticsearch-java:7.12.1不存在！云仓库最低版本是7.15.0的！

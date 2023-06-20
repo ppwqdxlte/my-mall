@@ -91,6 +91,7 @@
     * 注意：自打my-mall成了父模块，build构建时无法自动生成resources资源文件，必须手动复制粘贴到目标输出目录
     + 创建mall-demo子模块：运行查看不报错就说明分离方法可行
     + 先分离mall-mbg代码生成
+    + 分离出mall-search弹性搜索
 ## <span style="color: pink;">业务篇</span>
 1. mall数据库表结构概览
     + PowerDesigner数据库设计文件

@@ -1,4 +1,4 @@
-package com.laowang.mymall.malldemo.config;
+package com.laowang.mymall.mallsearch.config;
 
 import org.springframework.boot.actuate.autoconfigure.endpoint.web.CorsEndpointProperties;
 import org.springframework.boot.actuate.autoconfigure.endpoint.web.WebEndpointProperties;
@@ -28,14 +28,14 @@ import java.util.Collection;
 import java.util.List;
 
 /**
- * @program: my-mall/mall-demo
- * @description: swagger配置
+ * @program: my-mall
+ * @description: swagger接口文档配置
  * @author: Laowang
- * @create: 2023-06-15 15:17
+ * @create: 2023-06-20 11:54
  */
 @Configuration
 @EnableOpenApi
-public class SwaggerConfig{
+public class SwaggerConfig {
     /**
      * 配置基本信息
      * @return
@@ -44,10 +44,10 @@ public class SwaggerConfig{
     public ApiInfo apiInfo() {
         return new ApiInfoBuilder()
                 .title("SwaggerUI演示")
-                .description("mall-demo http://localhost:8080\n" +
-                        "swagger-ui http://localhost:8080/swagger-ui/index.html\n" +
-                        "api-docs http://localhost:8080/v2/api-docs")
-                .contact(new Contact("laowang","http://localhost:8080","vvvvvv@qq.com"))
+                .description("mall-search http://localhost:8081\n" +
+                        "swagger-ui http://localhost:8081/swagger-ui/index.html\n" +
+                        "api-docs http://localhost:8081/v2/api-docs")
+                .contact(new Contact("laowang","http://localhost:8081","vvvvvv@qq.com"))
                 .version("1.0")
                 .build();
     }
@@ -61,7 +61,7 @@ public class SwaggerConfig{
     public Docket createRestApi(ApiInfo apiInfo) {
         return new Docket(DocumentationType.OAS_30)
                 .apiInfo(apiInfo)
-                .groupName("my-mall/mall-demo API group")
+                .groupName("my-mall/mall-search API group")
                 .select()
                 .apis(RequestHandlerSelectors.withClassAnnotation(RestController.class))
                 .apis(RequestHandlerSelectors.withClassAnnotation(Controller.class))
